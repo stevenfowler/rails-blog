@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Steven's Blog</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<%= auto_discovery_link_tag :atom, "/posts.atom" %>
+</head>
+<body>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<%= link_to "Steven's Blog", posts_path, :class => "brand" %>
+				<div class="nav-collapse">
+					<ul class="nav">
+						<li><a href="#about">About</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div>
+	</div> <!-- /navbar -->
+	<p></p>
+
+	<%= yield %>
+
+	<footer>
+		<p>&copy; Steven Fowler 2012 | <a href="#">User Agreement</a>
+			| <a href="#">Privacy Policy</a>
+			| <a href="#">Copyright Policy</a>
+			| <a href="#">Send Feedback</a></p>
+		</footer>  
+	</body>
+	</html>

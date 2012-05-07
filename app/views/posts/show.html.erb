@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="hero-unit">
+		
+			<p id="notice"><%= notice %></p>
+			<h1><%= @post.title %></h1>
+			<p><%= @post.text %></p>
+			<h2>Comments:</h2>
+			
+			<% @post.comments.each do |comment| %>
+			<form class="well form-inline">		
+				<p><%= comment.text %> <%= link_to 'Delete Comment', [@post,comment], :method => :delete, :confirm => 'Are you sure ?'%></p>
+				<p><%= time_ago_in_words comment.created_at %> ago</p>
+			</form>
+			<% end %>
+			
+			<%= form_for [@post, @post.comments.build] do |f| %>
+			<p><%= f.text_area :text, :size => '40x10' %></p>
+			<p><%= f.submit "Post Comment" %></p>
+			<% end %>
+			
+			<%= link_to 'Edit', edit_post_path(@post) %> |
+			<%= link_to 'Delete', @post, :method => :delete, :confirm => 'Are you sure you want to delete ' + @post.title %>
+
+	</div>
+</div> <!-- /container -->

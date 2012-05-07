@@ -1,0 +1,17 @@
+<div class="container">
+	<% @posts.each do |post| %>
+	<div class="hero-unit">
+		<div class="row">
+			<div class="span12"><h2><%= link_to post.title, post%></h2></div>
+		</div>
+		<div class="row">
+			<div class="span6"><i>posted <%= time_ago_in_words post.created_at %> ago</i></div>
+			<div class="span6">comments <%= post.comments.count('created_at', :distinct => true) %></div>
+		</div>
+		<div class="row">
+			<div class="span12"><%= post.text %></div>
+		</div>
+	</div>
+	<% end %>
+	<div class="row"><%= link_to 'New Post', new_post_path, :class => "btn btn-primary btn-large" %>    	</div>
+</div> <!-- /container -->
